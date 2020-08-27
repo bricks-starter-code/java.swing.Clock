@@ -1,9 +1,7 @@
-package clock;
-
 import java.util.Calendar;
 
 /**
-/* The class Clock
+/* The class Clock. It simple tells the time
 */
 public class Clock
 {
@@ -62,7 +60,4 @@ public class Clock
         seconds = cal.get(Calendar.SECOND);
         
     }
-    
-    
-   
 }

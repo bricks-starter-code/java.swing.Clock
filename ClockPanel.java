@@ -1,9 +1,3 @@
-/*
- * Copyright Brian Ricks, PhD, 2016. bricks at unomaha.edu
- */
-
-package clock;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,9 +5,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-/**
-/* The class JPanel
-*/
 public class ClockPanel extends JPanel 
 {
     Clock clock;
@@ -24,6 +15,8 @@ public class ClockPanel extends JPanel
     public ClockPanel(Clock clock)
     {
         this.clock = clock;
+        
+        //These two calls tell the pack() method in the JPanel how big we want to be
         this.setPreferredSize(new Dimension(400, 400));  
         this.setMinimumSize(new Dimension(rimWidth * 4, rimWidth * 4));
     }
@@ -41,6 +34,7 @@ public class ClockPanel extends JPanel
         height = Math.min(width, height);
         int center = width/2;
         
+        //Upgrade to a more modern version of graphics
         Graphics2D g2d = (Graphics2D)g;
         
         ///Draw the clock rim
@@ -50,6 +44,7 @@ public class ClockPanel extends JPanel
         ///Draw the clock face
         g2d.setColor(Color.WHITE);
         
+        //If we fill with the same width and height, then we are really filling a circle
         g2d.fillOval(rimWidth, rimWidth, width - rimWidth * 2, height - rimWidth * 2);
         
         float hourHandLength = width / 4.0f;

@@ -1,31 +1,15 @@
-/*
- * Copyright Brian Ricks, PhD, 2016. bricks at unomaha.edu
- */
-package clock;
-
-import java.awt.HeadlessException;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JFrame;
 
-/**
- *
- * @author bricks
- */
 public class AnimatedClockSwing extends JFrame{
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-       
-       
         ///Get us into a non-static context
-        AnimatedClockSwing andrew = new AnimatedClockSwing();
+        new AnimatedClockSwing();
     }
 
     public AnimatedClockSwing()  {
-        
         
         Clock clock = new Clock();
         ClockPanel clockPanel = new ClockPanel(clock);
@@ -43,16 +27,22 @@ public class AnimatedClockSwing extends JFrame{
             
         }, 0, 1000);
         
+        //Display the window
+        this.setVisible(true);      
         
-        this.setVisible(true);
+        //Shut down the program when the windown closes
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Andrew");
+
+        //Give the frame a name
+        this.setTitle("Animated Clock");
+
+        //Add the panel to the frame
         this.add(clockPanel);
+
+        //Don't let the user shrink the window smaller than the clock
         this.setMinimumSize(clockPanel.getMinimumSize());
+
+        //Put everything together
         this.pack();
-        
     }
-    
-    
-    
 }
